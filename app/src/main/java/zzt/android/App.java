@@ -19,6 +19,6 @@ public class App extends Application {
         flutterEngine.getDartExecutor().executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault());
 
         // Cache the FlutterEngine to be used by FlutterActivity.
-        FlutterEngineCache.getInstance().put("my_engine_id", flutterEngine);
+        FlutterEngineCache.getInstance().put("flutter", flutterEngine);
     }
 }
