@@ -1,6 +1,6 @@
 ## setup
 
-after clone run
+run after clone
 
 ```
 flutter pub get
