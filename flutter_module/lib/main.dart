@@ -36,47 +36,33 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
-    BasicMessageChannel<String> channel =
-        BasicMessageChannel('my', StringCodec());
-
-    channel.setMessageHandler((message) async {
-      setState(() => page = message!);
+    BasicMessageChannel('my', StringCodec()).setMessageHandler((msg) async {
+      setState(() => page = msg!);
       return "success";
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (page == "/") {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              Text(
-                '首页',
-              ),
-            ],
+    switch (page) {
+      case 'index':
+        return IndexRoute();
+      case '/':
+      default:
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title),
           ),
-        ),
-      );
-    } else {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              Text(
-                'index',
-              ),
-            ],
+          body: Center(
+            child: Column(
+              children: <Widget>[
+                Text(
+                  '首页',
+                ),
+              ],
+            ),
           ),
-        ),
-      );
+        );
     }
   }
 }
