@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class IndexRoute extends StatelessWidget {
   @override
@@ -8,7 +9,12 @@ class IndexRoute extends StatelessWidget {
         title: Text("Index"),
       ),
       body: Center(
-        child: Text("这是一个新页面"),
+        child: FlatButton(
+          onPressed: () {
+            BasicMessageChannel('my', StringCodec()).send("给你发消息啦");
+          },
+          child: Text("发送"),
+        ),
       ),
     );
   }
