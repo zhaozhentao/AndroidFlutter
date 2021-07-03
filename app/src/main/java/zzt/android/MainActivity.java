@@ -22,10 +22,7 @@ public class MainActivity extends AppCompatActivity {
             "my",
             StringCodec.INSTANCE
         );
-        eventChannel.setMessageHandler((message, reply) -> {
-            Log.e("message", message);
-            reply.reply("hah");
-        });
+        eventChannel.setMessageHandler((message, reply) -> Log.e("message", message));
 
         findViewById(R.id.flutter).setOnClickListener(v -> {
             eventChannel.send("/");
