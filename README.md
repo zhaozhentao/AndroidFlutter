@@ -1,6 +1,6 @@
-## setup
+## Setup
 
-run after clone
+Run after clone
 
 ```
 cd flutter_module
