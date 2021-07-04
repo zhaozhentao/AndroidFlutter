@@ -1,68 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_module/Index.dart';
+import 'package:flutter_module/insta_home.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.purple),
-      routes: {
-        'index': (context) {
-          return IndexRoute();
-        }
-      },
-      home: MyHomePage(title: 'Flutter'),
+    return new MaterialApp(
+      title: 'Instagram',
+      debugShowCheckedModeBanner: false,
+      theme: new ThemeData(
+          primarySwatch: Colors.blue,
+          primaryColor: Colors.black,
+          buttonColor: Colors.black,
+          primaryIconTheme: IconThemeData(color: Colors.black),
+          primaryTextTheme: TextTheme(
+              bodyText1: TextStyle(color: Colors.black, fontFamily: "Aveny")),
+          textTheme: TextTheme(bodyText1: TextStyle(color: Colors.black))),
+      home: new InstaHome(),
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  String page = "/";
-
-  @override
-  void initState() {
-    super.initState();
-
-    BasicMessageChannel('my', StringCodec()).setMessageHandler((msg) async {
-      setState(() => page = msg!);
-      return "success";
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    switch (page) {
-      case 'index':
-        return IndexRoute();
-      case '/':
-      default:
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(widget.title),
-          ),
-          body: Center(
-            child: Column(
-              children: <Widget>[
-                Text(
-                  '首页',
-                ),
-              ],
-            ),
-          ),
-        );
-    }
   }
 }
