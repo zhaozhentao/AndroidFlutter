@@ -6,15 +6,19 @@
   android:orientation="vertical"
   tools:context=".MainActivity">
 
-  <Button
+  <TextView
     android:id="@+id/flutter"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="10dp"
     android:text="打开Flutter Home页面" />
 
-  <Button
+  <TextView
     android:id="@+id/index"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="10dp"
     android:text="打开Flutter Index页面" />
 </LinearLayout>
