@@ -11,6 +11,8 @@ class InsList extends StatefulWidget {
 class InsListState extends State<InsList> {
   bool isPressed = false;
 
+  late SizedBox? story = null;
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height * 0.15;
@@ -19,7 +21,10 @@ class InsListState extends State<InsList> {
         itemCount: 5,
         itemBuilder: (context, index) {
           if (index == 0) {
-            return SizedBox(height: height, child: InstaStories());
+            if (story == null) {
+              story = SizedBox(height: height, child: InstaStories());
+            }
+            return story as SizedBox;
           }
 
           return Column(
