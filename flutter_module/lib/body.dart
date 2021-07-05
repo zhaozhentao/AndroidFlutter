@@ -43,8 +43,8 @@ class InsListState extends State<InsList> {
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
-                                      image: NetworkImage(
-                                          'https://tvax1.sinaimg.cn/crop.0.0.750.750.180/6e064726ly8gr3r2tbgmtj20ku0kudgf.jpg?KID=imgbed,tva&Expires=1625394628&ssig=HoBL69LXrV')))),
+                                      image: AssetImage(
+                                          'assets/images/header.jpg')))),
                           SizedBox(width: 10),
                           Text("EEEcho",
                               style: TextStyle(fontWeight: FontWeight.bold))
@@ -53,9 +53,7 @@ class InsListState extends State<InsList> {
                       IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))
                     ],
                   )),
-              Image.network(
-                "https://images.pexels.com/photos/672657/pexels-photo-672657.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-              ),
+              Image.asset("assets/images/photo.jpg"),
               Padding(
                 padding: EdgeInsets.all(16),
                 child: Row(
@@ -97,8 +95,7 @@ class InsListState extends State<InsList> {
                         shape: BoxShape.circle,
                         image: new DecorationImage(
                             fit: BoxFit.fill,
-                            image: new NetworkImage(
-                                "https://tvax1.sinaimg.cn/crop.0.0.750.750.180/6e064726ly8gr3r2tbgmtj20ku0kudgf.jpg?KID=imgbed,tva&Expires=1625394628&ssig=HoBL69LXrV")),
+                            image: new AssetImage("assets/images/header.jpg")),
                       ),
                     ),
                     new SizedBox(
