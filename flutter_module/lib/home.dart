@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_module/body.dart';
 
 class Home extends StatelessWidget {
@@ -11,7 +14,15 @@ class Home extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.camera_alt),
-          onPressed: () {},
+          onPressed: () {
+            var msg = {
+              'cmd': 'page_change',
+              'last_page': true
+            };
+
+            BasicMessageChannel('my', StringCodec()).send(json.encode(msg));
+            print(Navigator.canPop(context));
+          },
         ),
         title: SizedBox(
           height: 35,
